@@ -43,3 +43,33 @@ class Correios:
             return objeto
 
         return None
+
+    def geraCodValido(self, cod: str):
+        cod = cod.strip()
+
+        if len(cod) < 12 or 13 < len(cod):
+            return ""
+
+        prefixo = cod[0:2]
+        numero = cod[2:10]
+        sufixo = cod[-2:]
+        multiplicadores = [8, 6, 4, 2, 3, 5, 9, 7]
+
+        if len(numero) < 8 and len(cod) == 12:
+            diferenca = 8 - len(numero)
+            zeros = "0" * diferenca
+            numero = zeros + numero
+
+        soma = sum(int(numero[i]) * multiplicadores[i] for i in range(8))
+        resto = soma % 11
+
+        if resto == 0:
+            dv = "5"
+        elif resto == 1:
+            dv = "0"
+        else:
+            dv = str(11 - int(resto))
+
+        codfinal = prefixo + numero + dv + sufixo
+
+        return codfinal
