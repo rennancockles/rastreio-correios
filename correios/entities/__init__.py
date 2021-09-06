@@ -5,11 +5,4 @@ from .objeto import Objeto
 from .oec import OEC
 from .unidade import Unidade
 
-__all__ = [
-    'Destino',
-    'Endereco',
-    'Evento',
-    'Objeto',
-    'OEC',
-    'Unidade'
-]
+__all__ = ["Destino", "Endereco", "Evento", "Objeto", "OEC", "Unidade"]

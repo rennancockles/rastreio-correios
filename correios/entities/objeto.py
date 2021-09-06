@@ -6,16 +6,16 @@ class Objeto(object):
         self.cepDestino = ""
         self.dataPostagem = ""
         self.eventos = list()
-        self.numero = kwargs.get('numero', '')
-        self.categoria = kwargs.get('categoria', '')
-        self.sigla = kwargs.get('sigla', '')
-        self.nome = kwargs.get('nome', '')
+        self.numero = kwargs.get("numero", "")
+        self.categoria = kwargs.get("categoria", "")
+        self.sigla = kwargs.get("sigla", "")
+        self.nome = kwargs.get("nome", "")
         self.json = ""
 
-        if 'evento' in kwargs and len(kwargs.get('evento', list())) > 0:
-            evento = kwargs.get('evento')[0]
-            self.cepDestino = evento.get('cepDestino', '')
-            self.dataPostagem = evento.get('dataPostagem', '')
+        if "evento" in kwargs and len(kwargs.get("evento", list())) > 0:
+            evento = kwargs.get("evento")[0]
+            self.cepDestino = evento.get("cepDestino", "")
+            self.dataPostagem = evento.get("dataPostagem", "")
 
-            for evento in kwargs.get('evento', list()):
+            for evento in kwargs.get("evento", list()):
                 self.eventos.append(Evento(**evento))
