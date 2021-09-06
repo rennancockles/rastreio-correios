@@ -1,0 +1,14 @@
+-r requirements.txt
+
+# Testing
+black
+flake8
+isort
+mypy
+pytest
+pytest-cov
+types-requests
+
+# Documentation
+mkdocs
+mkdocs-material

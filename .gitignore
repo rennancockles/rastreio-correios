@@ -1,0 +1,14 @@
+# Folders
+.venv
+.vscode
+.pytest_cache
+*.egg-info
+**/__pycache__
+dist
+docs_build
+
+# Files
+.env*
+!.env.example
+.coverage
+coverage.xml
