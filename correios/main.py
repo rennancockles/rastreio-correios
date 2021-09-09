@@ -23,14 +23,14 @@ class Correios:
             return r.json()
         return {}
 
-    def rastreio(self, codigo: str) -> Optional[Objeto]:
+    def rastreio(self, cod: str) -> Optional[Objeto]:
         body = f"""
         <rastroObjeto>
             <usuario>{self.usuario}</usuario>
             <senha>{self.senha}</senha>
             <tipo>L</tipo>
             <resultado>T</resultado>
-            <objetos>{codigo}</objetos>
+            <objetos>{cod}</objetos>
             <lingua>101</lingua>
             <token>QTXFMvu_Z-6XYezP3VbDsKBgSeljSqIysM9x</token>
         </rastroObjeto>
@@ -45,7 +45,7 @@ class Correios:
 
         return None
 
-    def gera_codigo_valido(self, cod: str):
+    def gera_codigo_valido(self, cod: str) -> str:
         cod = cod.strip()
 
         if 13 < len(cod):
