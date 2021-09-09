@@ -10,7 +10,7 @@ class Correios:
     senha: str
     base_url: str = "http://webservice.correios.com.br/service/rest/rastro/rastroMobile"
 
-    def __init__(self, usuario: str, senha: str):
+    def __init__(self, usuario: str = "", senha: str = ""):
         self.usuario = usuario
         self.senha = senha
 
