@@ -1,0 +1,68 @@
+site_name: Rastreio Correios
+site_description: Rastreamento de pacotes dos Correios.
+site_url: https://rastreio-correios.r3ck.com.br/
+
+repo_name: rastreio-correios
+repo_url: https://github.com/rennancockles/rastreio-correios
+edit_uri: ''
+
+site_dir: docs_build
+
+theme:
+  name: material
+  favicon: assets/img/pacote.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github-alt
+  logo: assets/img/pacote.png
+  language: pt
+  features:
+    - search.suggest
+    - search.highlight
+
+nav:
+  - "Rastreio Correios": index.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - admonition
+  - codehilite
+  - extra
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_div_format ''
+  - pymdownx.tabbed
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rennancockles/rastreio-correios
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/rennancockles
+
+extra_css:
+  - assets/css/custom.css
+  - assets/css/termynal.css
+
+extra_javascript:
+  - assets/js/termynal.js
+  - assets/js/custom.js
