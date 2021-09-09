@@ -1,3 +1,5 @@
+from typing import List
+
 from .evento import Evento
 
 
@@ -5,7 +7,7 @@ class Objeto(object):
     def __init__(self, *args, **kwargs):
         self.cepDestino = ""
         self.dataPostagem = ""
-        self.eventos = list()
+        self.eventos: List[Evento] = list()
         self.numero = kwargs.get("numero", "")
         self.categoria = kwargs.get("categoria", "")
         self.sigla = kwargs.get("sigla", "")
