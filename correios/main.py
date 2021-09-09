@@ -14,13 +14,14 @@ class Correios:
         self.usuario = usuario
         self.senha = senha
 
-    def _post(self, body):
+    def _post(self, body) -> dict:
         r = requests.post(
             self.base_url, data=body, headers={"Content-Type": "application/xml"}
         )
 
         if r.status_code == 200:
             return r.json()
+        return {}
 
     def rastreio(self, codigo: str) -> Optional[Objeto]:
         body = f"""
@@ -85,19 +86,15 @@ class Correios:
 
     def busca_por_cep(
         self, cep: str, start_cod: str, previous: int = 0, next: int = 10
-    ):
+    ) -> str:
         cep = cep.replace("-", "")
         prefixo = start_cod[0:2]
         numero = int(start_cod[2:10])
         sufixo = start_cod[-2:]
 
-        for p in range(previous):
-            test_cod = self.gera_codigo_valido(f"{prefixo}{numero - (p + 1)}{sufixo}")
-            if self.match_cep(cep, test_cod):
-                return test_cod
-
-        for n in range(next):
-            test_cod = self.gera_codigo_valido(f"{prefixo}{numero + n}{sufixo}")
+        for i in range(-(previous + 1), next):
+            test_cod = f"{prefixo}{numero + i + 1}{sufixo}"
+            test_cod = self.gera_codigo_valido(test_cod)
             if self.match_cep(cep, test_cod):
                 return test_cod
 
