@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-export SOURCE_FILES="correios"
+export SOURCE_FILES="correios tests"
 
 set -x
 
