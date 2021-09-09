@@ -16,15 +16,15 @@ jobs:
           python-version: 3.7
 
       - name: Install the dependencies
-        run: scripts/install -D
+        run: scripts/install.sh -D
         shell: bash
 
       - name: Build package & docs
-        run: scripts/build
+        run: scripts/build.sh
         shell: bash
 
       - name: Publish to PyPI & deploy docs
-        run: scripts/publish
+        run: scripts/publish.sh
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
