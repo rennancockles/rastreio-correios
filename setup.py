@@ -22,7 +22,7 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     packages=["correios"],
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=["fastapi"],
     keywords=["correios", "ect", "rastreio", "rastreamento", "track"],
     classifiers=[
