@@ -32,6 +32,8 @@ theme:
 
 nav:
   - "Rastreio Correios": index.md
+  - Funcionalidades:
+    - funcionalidades/index.md
 
 plugins:
   - search
