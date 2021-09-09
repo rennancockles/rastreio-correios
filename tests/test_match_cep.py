@@ -20,3 +20,9 @@ def test_cod_not_match(correios):
     matches = correios.match_cep(cep="28620000", cod="QC067757480BR")
 
     assert not matches
+
+
+def test_invalid_cod_not_match(correios):
+    matches = correios.match_cep(cep="28620000", cod="</objeto>QC067757480BR")
+
+    assert not matches
