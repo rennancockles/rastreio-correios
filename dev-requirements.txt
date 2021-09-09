@@ -12,3 +12,7 @@ types-requests
 # Documentation
 mkdocs
 mkdocs-material
+
+# Packaging
+twine
+wheel
