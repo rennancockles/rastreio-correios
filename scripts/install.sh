@@ -2,7 +2,7 @@
 
 REQUIREMENTS="requirements.txt"
 
-[[ $@ =~ -[dD] ]] && REQUIREMENTS="dev-requirements.txt"
+[ $1 == "-d" -o $1 == "-D" ] && REQUIREMENTS="dev-requirements.txt"
 
 set -x
 
