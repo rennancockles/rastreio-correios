@@ -56,7 +56,10 @@ class Correios:
         numero = cod[2:-2][:8]
         multiplicadores = [8, 6, 4, 2, 3, 5, 9, 7]
 
-        numero = self.format_num(numero)
+        if not prefixo.isalpha() or not sufixo.isalpha():
+            return ""
+
+        numero = numero.rjust(8, "0")
 
         soma = sum(int(numero[i]) * multiplicadores[i] for i in range(8))
         resto = soma % 11
@@ -76,13 +79,6 @@ class Correios:
         if r := self.rastreio(cod):
             return r.cepDestino == cep
         return False
-
-    def format_num(self, num: str) -> str:
-        if len(num) < 8:
-            diferenca = 8 - len(num)
-            zeros = "0" * diferenca
-            return zeros + num
-        return num
 
     def busca_por_cep(
         self, cep: str, start_cod: str, previous: int = 0, next: int = 10
