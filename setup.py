@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
 with open(Path("correios") / "__init__.py", encoding="utf-8") as fh:
     version = re.search(r'__version__ = "(.*?)"', fh.read(), re.M).group(1)
@@ -21,7 +21,7 @@ setup(
     description="Rastreamento de pacotes do correio",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    packages=["correios"],
+    packages=find_packages(exclude=["tests"]),
     python_requires=">=3.8",
     install_requires=["fastapi"],
     keywords=["correios", "ect", "rastreio", "rastreamento", "track"],
