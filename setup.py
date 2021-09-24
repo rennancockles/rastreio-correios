@@ -23,7 +23,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=["tests"]),
     python_requires=">=3.8",
-    install_requires=["fastapi", "requests"],
+    install_requires=["fastapi", "requests", "pydantic"],
     keywords=["correios", "ect", "rastreio", "rastreamento", "track"],
     classifiers=[
         "Operating System :: OS Independent",
