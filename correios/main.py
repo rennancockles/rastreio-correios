@@ -39,9 +39,7 @@ class Correios:
         json_result = self._post(body)
 
         if result := json_result.get("objeto", list()):
-            objeto = Objeto(**result[0])
-            objeto.json = json_result
-            return objeto
+            return Objeto(**result[0])
 
         return None
 
