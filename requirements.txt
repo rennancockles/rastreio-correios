@@ -16,3 +16,4 @@ twine
 wheel
 
 requests
+pydantic
