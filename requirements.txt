@@ -5,6 +5,7 @@ isort
 mypy
 pytest
 pytest-cov
+codecov
 types-requests
 
 # Documentation
