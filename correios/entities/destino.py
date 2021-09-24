@@ -1,16 +1,14 @@
 from typing import Optional
 
+from pydantic import BaseModel
+
 from .endereco import Endereco
 
 
-class Destino(object):
-    def __init__(self, *args, **kwargs):
-        self.bairro: str = kwargs.get("bairro", "")
-        self.local: str = kwargs.get("local", "")
-        self.cidade: str = kwargs.get("cidade", "")
-        self.uf: str = kwargs.get("uf", "")
-        self.codigo: str = kwargs.get("codigo", "")
-        self.endereco: Optional[Endereco] = None
-
-        if "endereco" in kwargs:
-            self.endereco = Endereco(**kwargs.get("endereco", dict()))
+class Destino(BaseModel):
+    bairro: Optional[str]
+    local: Optional[str]
+    cidade: Optional[str]
+    uf: Optional[str]
+    codigo: Optional[str]
+    endereco: Optional[Endereco]

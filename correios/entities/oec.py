@@ -1,17 +1,15 @@
 from typing import Optional
 
+from pydantic import BaseModel
+
 from .endereco import Endereco
 
 
-class OEC(object):
-    def __init__(self, *args, **kwargs):
-        self.lista: str = kwargs.get("lista", "")
-        self.longitude: str = kwargs.get("longitude", "")
-        self.latitude: str = kwargs.get("latitude", "")
-        self.carteiro: str = kwargs.get("carteiro", "")
-        self.distrito: str = kwargs.get("distrito", "")
-        self.unidade: str = kwargs.get("unidade", "")
-        self.endereco: Optional[Endereco] = None
-
-        if "endereco" in kwargs:
-            self.endereco = Endereco(**kwargs.get("endereco", dict()))
+class OEC(BaseModel):
+    lista: Optional[str]
+    longitude: Optional[str]
+    latitude: Optional[str]
+    carteiro: Optional[str]
+    distrito: Optional[str]
+    unidade: Optional[str]
+    endereco: Optional[Endereco]
